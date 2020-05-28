@@ -1,10 +1,10 @@
 #===================================================================
 #
-#           Dashboard 1 for the Daily data [Page 1]
+#Dashboard 1 for the Daily data
 #===================================================================
 
 
-fig = plt.figure(figsize=(15,12))
+fig1 = plt.figure(figsize=(15,12))
 
 plt.style.use('seaborn-darkgrid')
 
@@ -116,24 +116,24 @@ ax10.axes.get_xaxis().set_visible(False)
 ax10.axes.get_yaxis().set_visible(False)
 
 
-fig.tight_layout()
+fig1.tight_layout()
 ##plt.show()
 
 
 #===================================================================
 #
-#                 Dashboard 2 for the Daily data [Page 2]
+#Dashboard 2 for the Daily data
 #===================================================================
 
 
-fig = plt.figure(figsize=(15,12))
+fig2 = plt.figure(figsize=(15,12))
 
 plt.style.use('seaborn-darkgrid')
 
 plt.rcParams['ytick.right'] = plt.rcParams['ytick.labelright'] = True
 plt.rcParams['ytick.left'] = plt.rcParams['ytick.labelleft'] = False
 
-fig.autofmt_xdate()
+fig2.autofmt_xdate()
 
 
 #Global Constant for this set of axes
@@ -141,6 +141,15 @@ fig.autofmt_xdate()
 PTU = 100
 
 
+ax1 = plt.subplot2grid((4, 5), (0, 0), colspan=2, rowspan=3)
+#ax2 = plt.subplot2grid((4, 5), (2, 0), colspan=2,  rowspan=2, sharex = ax1)
+ax3 = plt.subplot2grid((4, 5), (0, 2), colspan=2, rowspan=3)
+ax4 = plt.subplot2grid((4, 5), (3, 0), colspan=2, rowspan=1, sharex = ax1)
+ax5 = plt.subplot2grid((4, 5), (3, 2), colspan=2, rowspan=1, sharex = ax3)
+ax6 = plt.subplot2grid((4, 5), (0, 4), colspan=1, rowspan=3, sharey = ax3)
+ax7 = plt.subplot2grid((4, 5), (3, 4), colspan=1, rowspan=1)
+
+"""
 ax1 = plt.subplot2grid((4, 5), (0, 0), colspan=2, rowspan=2)
 ax2 = plt.subplot2grid((4, 5), (2, 0), colspan=2,  rowspan=2, sharex = ax1)
 ax3 = plt.subplot2grid((4, 5), (0, 2), colspan=2, rowspan=2)
@@ -148,7 +157,7 @@ ax4 = plt.subplot2grid((4, 5), (2, 2), colspan=2, rowspan=1, sharex = ax3)
 ax5 = plt.subplot2grid((4, 5), (3, 2), colspan=2, rowspan=1, sharex = ax3)
 ax6 = plt.subplot2grid((4, 5), (0, 4), colspan=1, rowspan=2, sharey = ax3)
 ax7 = plt.subplot2grid((4, 5), (2, 4), colspan=1, rowspan=2)
-
+"""
 
 #Bolinger Chart
 candlestick_ohlc(ax1, candle_data[-PTU: ], colorup='limegreen', colordown='indianred')
@@ -197,7 +206,7 @@ ax4.plot(sbin.index[-PTU:], sbin['macd_daily_macd'][-PTU: ], color='cornflowerbl
 ax4.fill_between(sbin.index[-PTU: ], sbin['macd_daily_trigger'][-PTU: ], sbin['macd_daily_macd'][-PTU: ], where=(sbin['macd_daily_trigger'][-PTU: ] >= sbin['macd_daily_macd'][-PTU: ]), color='tab:red', alpha=0.3)
 ax4.fill_between(sbin.index[-PTU: ], sbin['macd_daily_trigger'][-PTU: ], sbin['macd_daily_macd'][-PTU: ], where=(sbin['macd_daily_trigger'][-PTU: ] < sbin['macd_daily_macd'][-PTU: ]), color='tab:green', alpha=0.3)
 ax4.set_title("MACD", color = 'grey', loc='right')
-ax4.axes.get_xaxis().set_visible(False)
+ax4.axes.get_xaxis().set_visible(True)
 ax4.axes.get_yaxis().set_visible(False)
 
 
@@ -227,35 +236,35 @@ ax7.axes.get_xaxis().set_visible(False)
 ax7.axes.get_yaxis().set_visible(False)
 
 
-fig.tight_layout()
+fig2.tight_layout()
 ##plt.show()
 
 
 #===================================================================
 #
-#                 Dashboard for the weekly data [Page 3]
+#Dashboard for the weekly data
 #===================================================================
 
-fig = plt.figure(figsize=(15,12))
+fig3 = plt.figure(figsize=(15,12))
 
 plt.style.use('seaborn-darkgrid')
 
 plt.rcParams['ytick.right'] = plt.rcParams['ytick.labelright'] = True
 plt.rcParams['ytick.left'] = plt.rcParams['ytick.labelleft'] = False
 
-fig.autofmt_xdate()
+fig3.autofmt_xdate()
 
 #Global Constant for this set of axes
 #Period to chart
 PTU = 100
 
-ax1 = plt.subplot2grid((4, 5), (0, 0), colspan=2, rowspan=2)
-ax2 = plt.subplot2grid((4, 5), (2, 0), colspan=2,  rowspan=2, sharex = ax1)
-ax3 = plt.subplot2grid((4, 5), (0, 2), colspan=2, rowspan=2)
-ax4 = plt.subplot2grid((4, 5), (2, 2), colspan=2, rowspan=1, sharex = ax3)
+ax1 = plt.subplot2grid((4, 5), (0, 0), colspan=2, rowspan=3)
+#ax2 = plt.subplot2grid((4, 5), (2, 0), colspan=2,  rowspan=2, sharex = ax1)
+ax3 = plt.subplot2grid((4, 5), (0, 2), colspan=2, rowspan=3)
+ax4 = plt.subplot2grid((4, 5), (3, 0), colspan=2, rowspan=1, sharex = ax1)
 ax5 = plt.subplot2grid((4, 5), (3, 2), colspan=2, rowspan=1, sharex = ax3)
-ax6 = plt.subplot2grid((4, 5), (0, 4), colspan=1, rowspan=2, sharey = ax3)
-ax7 = plt.subplot2grid((4, 5), (2, 4), colspan=1, rowspan=2)
+ax6 = plt.subplot2grid((4, 5), (0, 4), colspan=1, rowspan=3, sharey = ax3)
+ax7 = plt.subplot2grid((4, 5), (3, 4), colspan=1, rowspan=1)
 
 
 #Bolinger Chart
@@ -284,7 +293,6 @@ ax2.axes.get_yaxis().set_visible(True)
 #ax2.legend(False)
 
 
-
 #Ichimoku Chart
 candlestick_ohlc(ax3, sbin_weekly_candle_data[-PTU:], colorup='tab:green', colordown='tab:red', width = 2)
 ax3.plot(sbin_weekly['Date'].tail(PTU), sbin_weekly['tenkan_avg'].tail(PTU), color='cornflowerblue')
@@ -299,13 +307,14 @@ ax3.axes.get_xaxis().set_visible(False)
 ax3.axes.get_yaxis().set_visible(True)
 #ax3.legend(False)
 
+
 #MACD Chart
 ax4.plot(sbin_weekly['Date'].tail(PTU), sbin_weekly['macd_daily_trigger'].tail(PTU), color='cornflowerblue', alpha = 0.4)
 ax4.plot(sbin_weekly['Date'].tail(PTU), sbin_weekly['macd_daily_macd'].tail(PTU), color='cornflowerblue', alpha = 0.4)
 ax4.fill_between(sbin_weekly['Date'].tail(PTU), sbin_weekly['macd_daily_trigger'].tail(PTU), sbin_weekly['macd_daily_macd'].tail(PTU), where=(sbin_weekly['macd_daily_trigger'].tail(PTU) >= sbin_weekly['macd_daily_macd'].tail(PTU)), color='tab:red', alpha=0.3)
 ax4.fill_between(sbin_weekly['Date'].tail(PTU), sbin_weekly['macd_daily_trigger'].tail(PTU), sbin_weekly['macd_daily_macd'].tail(PTU), where=(sbin_weekly['macd_daily_trigger'].tail(PTU) < sbin_weekly['macd_daily_macd'].tail(PTU)), color='tab:green', alpha=0.3)
 ax4.set_title("MACD", color = 'grey', loc='right')
-ax4.axes.get_xaxis().set_visible(False)
+ax4.axes.get_xaxis().set_visible(True)
 ax4.axes.get_yaxis().set_visible(False)
 
 
@@ -335,8 +344,39 @@ ax7.axes.get_xaxis().set_visible(True)
 ax7.axes.get_yaxis().set_visible(True)
 
 
-plt.subplots_adjust(wspace=0, hspace=0)
+fig3.tight_layout()
 
-fig.tight_layout()
+
+
+#Set some plot settings
+#plt.subplots_adjust(wspace=0, hspace=0)
+
+#--------------------------------------------------------------------------------------------
+#Create and Save dashboards as PDF files
+from matplotlib.backends.backend_pdf import PdfPages
+import datetime
+import getpass
+
+author = getpass.getuser()
+dt = datetime.date.today()
+name_of_file = '{}_{}.{}.{}_chart.pdf'.format(ticker,dt.year,dt.month,dt.day)
+
+make_pdf = PdfPages(name_of_file)
+make_pdf.savefig(fig1)
+make_pdf.savefig(fig2)
+make_pdf.savefig(fig3)
+
+pdf_info = make_pdf.infodict()
+pdf_info['Title'] = 'Charting {}'.format(ticker)
+pdf_info['Author'] = author
+pdf_info['Subject'] = ''
+pdf_info['Keywords'] = ''
+pdf_info['CreationDate'] = datetime.datetime.now()
+pdf_info['ModDate'] = datetime.datetime.today()
+
+make_pdf.close()
+#--------------------------------------------------------------------------------------------
+
+
 plt.show()
 
