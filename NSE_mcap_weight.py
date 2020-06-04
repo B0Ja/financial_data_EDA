@@ -1,3 +1,9 @@
+"""
+Objective: Dashboard of the NSE Nifty & NSE Next Index stocks and its distribution.
+
+Plots: Weightages, Returns (1yr, 6m, 3m, 1m) and Free Float Market Capitalization.
+"""
+
 import datetime
 from datetime import date, timedelta
 import matplotlib.pyplot as plt
