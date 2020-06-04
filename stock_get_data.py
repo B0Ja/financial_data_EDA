@@ -1,6 +1,13 @@
 # Arunachal V1 May 25 2020
 ##Getting and plotting data
 
+"""
+This code creates, gets and/or updates the data
+based on the tickers scraped from Wikipedia.
+
+Sequence of code execution: stock_get_data.py > stock_data_transformations.py > stock_dashboards.py
+"""
+
 
 #Importing Modules
 from __future__ import with_statement
