@@ -1,3 +1,12 @@
+"""
+This code is for tranformation of data with added analysis.
+
+This data is used for the charting / dashboarding using stock_dashboards.py
+code.
+
+Sequence of code execution: stock_get_data.py > stock_data_transformations.py > stock_dashboards.py
+"""
+
 
 #Importing Modules [Not all will be used here]
 from __future__ import with_statement
