@@ -1,6 +1,16 @@
+"""
+This code creates and lays the basis for dashboard, using the 
+stock_data_transformations.py transformations.
+
+Charting is based on Daily and Weekly time frames. The option
+of the saving the dashboard in a PDF format.
+
+Sequence of code execution: stock_get_data.py > stock_data_transformations.py > stock_dashboards.py
+"""
+
 #===================================================================
 #
-#Dashboard 1 for the Daily data
+#   Dashboard 1 for the Daily data
 #===================================================================
 
 
